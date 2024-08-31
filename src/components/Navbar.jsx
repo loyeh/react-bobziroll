@@ -1,12 +1,12 @@
 import React from "react";
 import logoimg from "../logo.svg";
 
-const Navbar = () => {
+const Navbar = ({ score }) => {
   return (
     <nav className="navbar">
       <h2>About</h2>
 
-      <h3>SCORE: 00</h3>
+      <h3>SCORE: {score}</h3>
     </nav>
   );
 };

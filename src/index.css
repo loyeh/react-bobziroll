@@ -61,3 +61,6 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.filled {
+  background-color: #222;
+}
