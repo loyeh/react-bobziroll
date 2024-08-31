@@ -4,10 +4,9 @@ import logoimg from "../logo.svg";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <img src={logoimg} alt="react logo" />
-      <h2>ReactFacts</h2>
+      <h2>About</h2>
 
-      <h3>React Course-project1</h3>
+      <h3>SCORE: 00</h3>
     </nav>
   );
 };
