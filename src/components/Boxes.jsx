@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Boxes = ({ items = 6, onBoxClick = () => {} }) => {
-  const boxArr = [];
-  for (let i = 0; i < items; i++) {
-    boxArr.push(0);
-  }
-  const [boxGame, setBoxGame] = useState(boxArr);
+  const boxGame = useRef(Array(items).fill(0));
+  const [boxChanged, setBoxChanged] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      const index = Math.trunc(Math.random() * boxGame.length);
-      console.log(index);
-      boxArr[index] = 1;
-      setBoxGame(boxArr);
-    }, 2000);
-  }, [boxGame]);
+    const timeOut = setTimeout(() => {
+      const index = Math.trunc(Math.random() * items);
+      console.log(boxGame);
+      boxGame.current = Array(items).fill(0);
+      boxGame.current[index] = 1;
+      setBoxChanged(!boxChanged);
+    }, 500);
+    return () => {
+      clearTimeout(timeOut);
+    };
+  }, [boxChanged]);
 
   return (
     <div className="box-container">
-      {boxGame.map((box, index) => (
+      {boxGame.current.map((box, index) => (
         <div
           key={index}
           className={box === 1 ? "box filled" : "box"}
