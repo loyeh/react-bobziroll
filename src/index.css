@@ -65,10 +65,13 @@ h1 {
 .box {
   width: 25%;
   height: 25%;
-  background-color: #eee;
+  /* background-color: #eee; */
   border-radius: 10px;
   cursor: pointer;
 }
 .filled {
-  background-color: #222;
+  background-image: url("./images/202101_Mouse.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
