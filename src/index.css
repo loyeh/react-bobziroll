@@ -1,17 +1,20 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
   font-family: inter, sans-serif;
   width: 100dvw;
+  height: 100dvh;
 }
 
 .navbar {
   background-color: #21222a;
   display: flex;
   align-items: center;
-  height: 90px;
+  height: 10dvh;
   padding: 30px 25px;
 }
 
@@ -35,27 +38,32 @@
 }
 
 .game-container {
-  width: 100%;
+  width: 100dvw;
+  height: 90dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
+h1 {
+  margin-block: 20px;
+}
+
 .box-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 90dvw;
+  width: 90%;
   height: 65dvh;
   align-items: center;
   justify-content: space-between;
-  margin-top: 50px;
   gap: 25px;
+  margin-top: 30px;
 }
 
 .box {
-  width: 30%;
+  width: 25%;
   height: 25%;
   background-color: #eee;
   border-radius: 10px;
