@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 
 const Boxes = ({ items = 6, onBoxClick = () => {} }) => {
-  const [boxGame, setBoxGame] = useState([Array(items).fill(0)]);
-  const [state, setState] = useState(true);
-
+  const [boxGame, setBoxGame] = useState(Array(items).fill(0));
   useEffect(() => {
     setTimeout(() => {
       const index = Math.trunc(Math.random() * items);
       console.log(index);
-      const oldBox = Array(items).fill(0);
-      oldBox[index] = 1;
-      setBoxGame(oldBox);
-      setState(!state);
+      setBoxGame(() => {
+        const newBoxArray = Array(items).fill(0);
+        newBoxArray[index] = 1;
+        return newBoxArray;
+      });
+      console.log(boxGame);
     }, 2000);
-  }, [state]);
-
+  }, [boxGame]);
   return (
     <div className="box-container">
       {boxGame.map((box, index) => (

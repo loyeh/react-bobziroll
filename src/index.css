@@ -67,11 +67,25 @@ h1 {
   height: 25%;
   /* background-color: #eee; */
   border-radius: 10px;
-  cursor: pointer;
 }
 .filled {
   background-image: url("./images/202101_Mouse.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
+}
+.clicked {
+  /* background-color: #ff00006b; */
+  position: relative;
+}
+
+.clicked::after {
+  content: "X";
+  font-size: 150px;
+  color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -5,8 +5,12 @@ import Main from "./components/Main";
 function App() {
   const [score, setScore] = useState(0);
 
-  function onBoxClick() {
-    setScore(score + 1);
+  function onBoxClick(event) {
+    if (event.target.classList.contains("clicked")) {
+      return;
+    }
+    event.target.classList.add("clicked");
+    setScore((oldScore) => oldScore + 1);
   }
   return (
     <div className="container">
