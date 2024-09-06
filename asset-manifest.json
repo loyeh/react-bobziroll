@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-bobziroll/static/css/main.6c6eae5c.css",
-    "main.js": "/react-bobziroll/static/js/main.cf3c6b0e.js",
+    "main.css": "/react-bobziroll/static/css/main.ea58e9a4.css",
+    "main.js": "/react-bobziroll/static/js/main.50633265.js",
     "static/media/202101_Mouse.png": "/react-bobziroll/static/media/202101_Mouse.4af8579a9cd3a2c0e166.png",
     "static/media/logo.svg": "/react-bobziroll/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/react-bobziroll/index.html",
-    "main.6c6eae5c.css.map": "/react-bobziroll/static/css/main.6c6eae5c.css.map",
-    "main.cf3c6b0e.js.map": "/react-bobziroll/static/js/main.cf3c6b0e.js.map"
+    "main.ea58e9a4.css.map": "/react-bobziroll/static/css/main.ea58e9a4.css.map",
+    "main.50633265.js.map": "/react-bobziroll/static/js/main.50633265.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c6eae5c.css",
-    "static/js/main.cf3c6b0e.js"
+    "static/css/main.ea58e9a4.css",
+    "static/js/main.50633265.js"
   ]
 }
