@@ -4,17 +4,26 @@ const Boxes = ({ items = 6, onBoxClick = () => {} }) => {
   const [boxGame, setBoxGame] = useState(Array(items).fill(0));
   const [startGame, setStartGame] = useState(false);
 
+  function boxRandomChooser() {
+    const index = Math.trunc(Math.random() * items);
+    console.log(index);
+    setBoxGame(() => {
+      const newBoxArray = Array(items).fill(0);
+      newBoxArray[index] = 1;
+      return newBoxArray;
+    });
+  }
+
+  function boxClickHandler(target) {
+    onBoxClick(target);
+    setTimeout(boxRandomChooser, 330);
+  }
+
   useEffect(() => {
-    setTimeout(() => {
-      const index = Math.trunc(Math.random() * items);
-      console.log(index);
-      setBoxGame(() => {
-        const newBoxArray = Array(items).fill(0);
-        newBoxArray[index] = 1;
-        return newBoxArray;
-      });
-      console.log(boxGame);
-    }, 2000);
+    const timeout = setTimeout(boxRandomChooser, 2000);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [boxGame]);
 
   return (
@@ -31,7 +40,7 @@ const Boxes = ({ items = 6, onBoxClick = () => {} }) => {
           <div
             key={index}
             className={box === 1 ? "box filled" : "box"}
-            onClick={box === 1 ? onBoxClick : null}
+            onClick={box === 1 ? boxClickHandler : null}
           ></div>
         ))}
     </div>
