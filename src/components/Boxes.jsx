@@ -20,7 +20,9 @@ const Boxes = ({ items = 6, onBoxClick = () => {} }) => {
   }
 
   useEffect(() => {
-    const timeout = setTimeout(boxRandomChooser, 2000);
+    const timeOfBoxChange = Math.trunc(Math.random() * 1000) + 2000;
+    const timeout = setTimeout(boxRandomChooser, timeOfBoxChange);
+    console.log(timeOfBoxChange);
     return () => {
       clearTimeout(timeout);
     };
