@@ -5,6 +5,10 @@ import Main from "./components/Main";
 function App() {
   const [score, setScore] = useState(0);
 
+  function resetScore() {
+    setScore(0);
+  }
+
   function onBoxClick(event) {
     if (event.target.classList.contains("clicked")) {
       return;
@@ -15,7 +19,7 @@ function App() {
   return (
     <div className="container">
       <Navbar score={score} />
-      <Main onBoxClick={onBoxClick} />
+      <Main onBoxClick={onBoxClick} score={score} resetScore={resetScore} />
     </div>
   );
 }

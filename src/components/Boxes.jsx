@@ -1,12 +1,27 @@
 import React, { useEffect, useState } from "react";
 
-const Boxes = ({ items = 6, onBoxClick = () => {} }) => {
+const Boxes = ({
+  items = 6,
+  onBoxClick = () => {},
+  resetScore = () => {},
+  score = 0,
+}) => {
   const [boxGame, setBoxGame] = useState(Array(items).fill(0));
-  const [startGame, setStartGame] = useState(false);
+  const [gameTimes, setGameTimes] = useState({
+    start: false,
+    end: false,
+  });
+
+  function startGame() {
+    resetScore();
+    setGameTimes({ start: true, end: false });
+    setTimeout(() => {
+      setGameTimes({ start: false, end: true });
+    }, 30000);
+  }
 
   function boxRandomChooser() {
     const index = Math.trunc(Math.random() * items);
-    console.log(index);
     setBoxGame(() => {
       const newBoxArray = Array(items).fill(0);
       newBoxArray[index] = 1;
@@ -30,14 +45,15 @@ const Boxes = ({ items = 6, onBoxClick = () => {} }) => {
 
   return (
     <div className="box-container">
-      {!startGame && (
+      {!gameTimes.start && !gameTimes.end && (
         <div className="startBtn-container">
-          <button className="startBtn" onClick={() => setStartGame(true)}>
+          <button className="startBtn" onClick={startGame}>
             START
           </button>
         </div>
       )}
-      {startGame &&
+      {gameTimes.start &&
+        !gameTimes.end &&
         boxGame.map((box, index) => (
           <div
             key={index}
@@ -45,6 +61,14 @@ const Boxes = ({ items = 6, onBoxClick = () => {} }) => {
             onClick={box === 1 ? boxClickHandler : null}
           ></div>
         ))}
+      {!gameTimes.start && gameTimes.end && (
+        <div className="startBtn-container">
+          <h1>Your Score is: {score}</h1>
+          <button className="startBtn" onClick={startGame}>
+            Try Again
+          </button>
+        </div>
+      )}
     </div>
   );
 };
